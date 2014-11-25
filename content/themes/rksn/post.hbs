@@ -6,16 +6,36 @@
 {{! Everything inside the #post tags pulls data from the post }}
 {{#post}}
 
-<header class="main-header post-head {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}">
-    <nav class="main-nav {{#if image}}overlay{{/if}} clearfix">
-        <a class="back-button icon-arrow-left" href="{{@blog.url}}">Home</a>
-        <a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
-    </nav>
-</header>
+<div id="container" class="container {{#if image}}intro-effect-push{{/if}}">
 
-<main class="content" role="main">
+    <header class="{{#if image}}main-header header post-head{{/if}}">
+        <nav class="main-nav {{#if image}}overlay{{/if}} clearfix" style="position: fixed; width: 100%;">
+            <a class="back-button icon-arrow-left" href="{{@blog.url}}">Home</a>
+            <a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
+        </nav>
 
-    <article class="{{post_class}}">
+        {{#if image}}
+            <div class="bg-img" style="background: url('{{image}}') center center; background-size: cover;"></div>
+            <div class="vertical">
+                <div class="main-header-content inner">
+                    <h1 class="post-title">{{title}}</h1>
+                    <section class="post-meta">
+                        <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time> {{tags prefix=" on "}}
+                    </section>
+                </div>
+            </div>
+        {{/if}}
+
+    </header>
+
+    {{#if image}}
+        <nav class="main-nav clearfix" style="z-index: 9; position: fixed; width: 100%;">
+            <a class="back-button icon-arrow-left" href="{{@blog.url}}">Home</a>
+            <a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
+        </nav>
+    {{/if}}
+
+    <article class="{{post_class}} content" role="main">
 
         <header class="post-header">
             <h1 class="post-title">{{title}}</h1>
@@ -24,36 +44,35 @@
             </section>
         </header>
 
-        <section class="post-content">
-            {{content}}
-        </section>
+        {{content}}
+
 
         <footer class="post-footer">
 
-        {{! Everything inside the #author tags pulls data from the author }}
-        {{#author}}
+            {{! Everything inside the #author tags pulls data from the author }}
+            {{#author}}
 
-            {{#if image}}
-            <figure class="author-image">
-                <a class="img" href="{{url}}" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></a>
-            </figure>
-            {{/if}}
-
-            <section class="author">
-                <h4><a href="{{url}}">{{name}}</a></h4>
-
-                {{#if bio}}
-                    <p>{{bio}}</p>
-                {{else}}
-                    <p>Read <a href="{{url}}">more posts</a> by this author.</p>
+                {{#if image}}
+                <figure class="author-image">
+                    <a class="img" href="{{url}}" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></a>
+                </figure>
                 {{/if}}
-                <div class="author-meta">
-                    {{#if location}}<span class="author-location icon-location">{{location}}</span>{{/if}}
-                    {{#if website}}<span class="author-link icon-link"><a href="{{website}}">{{website}}</a></span>{{/if}}
-                </div>
-            </section>
 
-        {{/author}}
+                <section class="author">
+                    <h4><a href="{{url}}">{{name}}</a></h4>
+
+                    {{#if bio}}
+                        <p>{{bio}}</p>
+                    {{else}}
+                        <p>Read <a href="{{url}}">more posts</a> by this author.</p>
+                    {{/if}}
+                    <div class="author-meta">
+                        {{#if location}}<span class="author-location icon-location">{{location}}</span>{{/if}}
+                        {{#if website}}<span class="author-link icon-link"><a href="{{website}}">{{website}}</a></span>{{/if}}
+                    </div>
+                </section>
+
+            {{/author}}
 
             <section class="share">
                 <h4>Share this post</h4>
@@ -75,6 +94,6 @@
 
     </article>
 
-</main>
+</div>
 
 {{/post}}
