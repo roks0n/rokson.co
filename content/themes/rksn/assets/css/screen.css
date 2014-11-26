@@ -621,7 +621,7 @@ margin on the iframe, cause it breaks stuff. */
 /* Special styles when overlaid on an image*/
 .main-nav.overlay {
     position: fixed;
-    z-index: 15001;
+    z-index: 0;
     top: 0;
     left: 0;
     right: 0;
