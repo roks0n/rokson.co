@@ -239,4 +239,9 @@
             scrollPage();
         }
     });
+    window.addEventListener( 'touchmove', function() {
+        if($('#container').hasClass('intro-effect-push')) {
+            scrollPage();
+        }
+    });
 })();
