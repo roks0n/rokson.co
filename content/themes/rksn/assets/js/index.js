@@ -167,7 +167,8 @@
         isRevealed,
         noscroll,
         isAnimating,
-        container = document.getElementById( 'container' );
+        container = document.getElementById( 'container' ),
+        trigger = container.querySelector( 'button.trigger' );
 
     function scrollY() {
         return window.pageYOffset || docElem.scrollTop;
@@ -239,9 +240,7 @@
             scrollPage();
         }
     });
-    window.addEventListener( 'touchmove', function() {
-        if($('#container').hasClass('intro-effect-push')) {
-            scrollPage();
-        }
-    });
+
+    trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
+
 })();
