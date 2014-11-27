@@ -1202,6 +1202,11 @@ body:not(.post-template) .post-title {
 }
 
 /* My Stuff */
+.header .main-header-content.inner .post-title {
+    color: #FFF;
+    /*background: rgba(0,0,0,0.15);*/
+    padding: 0em 0.2em 0.2em;
+}
 .social {
     list-style: none;
     margin: 0;
@@ -1350,7 +1355,7 @@ html, body, .container, .header {
 
 .intro-effect-push .content > div {
     /*margin-top: 50px;*/
-    color: #b2b2c0;
+    color: #3A4145;
 }
 
 .intro-effect-push > .title,
