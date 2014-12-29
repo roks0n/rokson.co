@@ -1248,10 +1248,11 @@ hr.small {
 }
 
 /* RWD */
-article.article img {
-    display: block;
+article.post.content img {
+    border: 0;
     min-width: 100%;
     max-width: 100%;
+    width: 100%;
 }
 * {
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -1331,6 +1332,12 @@ button.trigger span::before {
     speak: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+figcaption {
+    color: #000;
+    font-style: italic;
+    font-size: 11px;
 }
 
 /* Effects */
